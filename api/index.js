@@ -12,27 +12,30 @@ app.use((req, res, next) => {
   }))
 })
 
+app.get('/', (req, res) => {
+  res.redirect('https://fontkey.kognise.dev')
+})
+
 app.post('/', async (req, res) => {
   res.header('Access-Control-Allow-Origin', '*')
   if (!req.body) return res.sendStatus(400)
 
   const id = await uid(10)
   await store.set(id, req.body)
-  res.send(`https://s.fontkey.design/${id}`)
+  res.send(`https://fk.kognise.dev/${id}`)
 })
 
 app.get('/:id', async (req, res) => {
   const query = await store.get(req.params.id)
   if (query) {
     console.log('Regular store')
-    res.redirect(`https://www.fontkey.design/app${query}`)
+    res.redirect(`https://fontkey.kognise.dev/app${query}`)
   } else {
     console.log('No store')
     return res.sendStatus(404)
   }
 })
 
-app.get('/', (req, res) => res.send('FontKey sharing API is up.'))
 app.listen(() => console.log('Listening'))
 
 module.exports = app
