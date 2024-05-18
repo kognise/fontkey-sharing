@@ -1,0 +1,1 @@
+Sharing API for [FontKey](https://github.com/kognise/fontkey/).

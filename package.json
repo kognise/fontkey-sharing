@@ -1,0 +1,9 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "s1db": "0.0.3",
+    "express": "4.17.1",
+    "uid-promise": "1.1.0",
+    "concat-stream": "2.0.0"
+  }
+}
